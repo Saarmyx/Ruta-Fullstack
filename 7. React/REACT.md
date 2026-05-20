@@ -944,6 +944,66 @@ function Button({ text }) {
 
 ---
 
+<!-- Segunda parte -->
+
+Se debe tener en cuenta que las props deben ser imutables, ejemplo
+
+userName = `@{userName}` Mala practica
+const userName = `@{userName}` mejor practica pero sigue sin ser la correcta
+
+Podemos usar children para renderizar un texto dentro de nuestra tarjeta por ejemplo
+
+Tambien se puede poner un valor por defecto a las props, como
+
+userName = '@uknown'
+
+Tambien se puede hacer a la info del componente de una manera mediante constatenss
+
+const saarmyx = {isFollowing: true, userName: 'Saarmyx'}
+y mostrarlo en el componente
+
+<XFollowCard {... saarmyx}>
+Saarmyx
+</XFollowCard>
+
+Esto es puede hacer que sea mas complejo saber la info que le llega al componente
+
+Para cambiar el contenido de un boton, se hace mediante un estado
+
+Lo podemos hacer mediante la prop isFollowing, cambiaremos los estilos mediante el renderizado condicional
+
+const text = isFollowing ? 'Siguiendo' : 'Seguir'
+const buttonClassName = isFollowing ? 'tw-followCard-button isFollowing' : 'tw-followCard-button'
+
+y luego se lo pasamos al button como una clase
+
+className={buttonClassName}
+
+y dandole vida lo que vamos a hjacer es que el componente sea un estado para esto usamos
+import {useState} from 'react' eso se le llama un hook y nos sirve para guardar una variable con un estado
+
+const state = useState{false}
+const isFollowing = state[0]
+const setIsFollowing = state[1]
+
+const [isFollowing, setIsFollowing] = useState{false}
+
+Esas 3 lineas, es igual a esa linea
+
+const handleClick = () => {
+setIsFollowing(!isFollowing)
+}
+
+Cuando se le haga click cambia el componente setIsFollowing al valor diferente a isFollowing
+
+Ya podemos darnos cuenta de como se hace en react y en Js
+
+que es el DOM virtual
+
+Esto hace alusion a que cambie solo la parte que detecta el cambio
+
+
+
 # 🏁 Conclusión
 
 React cambia completamente la manera de construir interfaces.
