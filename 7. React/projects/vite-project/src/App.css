@@ -28,6 +28,15 @@ article img {
 }
 
 article button {
+  cursor: pointer;
   margin-left: 16px;
   border: 0;
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-weight: bold;
+}
+
+article button:hover {
+  background-color: #ddd;
+  transition: 0.3s ease background-color;
 }
